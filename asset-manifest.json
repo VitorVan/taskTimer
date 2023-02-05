@@ -1,5 +1,6 @@
 {
   "files": {
+    "main.css": "/taskTimer/static/css/main.b0c2e009.css",
     "main.js": "/taskTimer/static/js/main.9f61f9c0.js",
     "static/js/496.72f260e6.chunk.js": "/taskTimer/static/js/496.72f260e6.chunk.js",
     "index.html": "/taskTimer/index.html",
@@ -7,6 +8,7 @@
     "496.72f260e6.chunk.js.map": "/taskTimer/static/js/496.72f260e6.chunk.js.map"
   },
   "entrypoints": [
+    "static/css/main.b0c2e009.css",
     "static/js/main.9f61f9c0.js"
   ]
 }
