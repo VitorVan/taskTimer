@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    font-family: 'Montserrat', sans-serif !important;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -50,6 +51,7 @@ export const Container = styled.div`
 `;
 
 export const ButtonContainer = styled.div`
+    font-family: 'Montserrat', sans-serif !important;
     margin-top: 30px;
     margin-bottom: 30px;
     display: flex;
@@ -59,11 +61,16 @@ export const ButtonContainer = styled.div`
 `;
 
 export const TaskBar = styled.div`
+    font-family: 'Montserrat', sans-serif !important;
     display: flex;
     padding: 10px;
 
     p {
         font-weight: 700;
         margin-right: 10px
+    }
+
+    .date {
+        font-weight: 500;
     }
 `;

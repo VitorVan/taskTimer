@@ -7,6 +7,7 @@ import { Container, ButtonContainer, TaskBar } from "./styles";
 
 export default function Timer() {
     const [taskname, setTaskname] = useState('');
+    const [actualDate, setActualDate] = useState('');
     const [tasks, setTasks] = useState(() => {
         const saved = localStorage.getItem("tasks");
         const initialValue = JSON.parse(saved);
@@ -17,6 +18,10 @@ export default function Timer() {
         {
           key: 'taskName',
           name: 'Task',
+        },
+        {
+          key: 'date',
+          name: 'Data',
         },
         {
           key: 'taskDays',
@@ -50,7 +55,8 @@ export default function Timer() {
         pause,
         reset,
       } = useStopwatch({ });
-    
+  
+
       function onReset() {
         reset();
         start();
@@ -63,6 +69,7 @@ export default function Timer() {
             taskHours: hours,
             taskMin: minutes,
             taskSec: seconds,
+            date: actualDate,
         }
 
         if (actual.taskName === '') {
@@ -71,11 +78,18 @@ export default function Timer() {
         }
 
         setTasks([...tasks, actual])
-        setTaskname('');    
+        setTaskname('');
+        setActualDate('');
         reset(undefined, false)
       }
       function handleInputChange(event) {
         setTaskname(event.target.value);
+      }
+      function onStart() {
+        start();
+        const current = new Date();
+        const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+        setActualDate(date);
       }
 
       return (
@@ -83,7 +97,7 @@ export default function Timer() {
                 <h1>Este é o seu timer</h1>
                 <input type="text" placeholder="Insira aqui o nome da task" value={taskname} onChange={handleInputChange}/>
                 <ButtonContainer>
-                    <button onClick={start} className='start'>Start</button>
+                    <button onClick={onStart} className='start'>Start</button>
                     <button onClick={pause} className='pause'>Pause</button>
                     <button onClick={onSave} className='save'>Salvar</button>
                     <button onClick={() => reset(undefined, false)} className='reset'>Resetar</button>
@@ -96,7 +110,7 @@ export default function Timer() {
                 <p>{isRunning ? 'Contando' : 'Pausado'}</p>
             {tasks.map((task) => (
                 <div className="tasksContainer" key={task.taskName}>
-                    <TaskBar><p>{task.taskName}</p> <span>{task.taskDays}</span>:<span>{task.taskHours}</span>:<span>{task.taskMin}</span>:<span>{task.taskSec}</span></TaskBar> 
+                    <TaskBar><p>{task.taskName}</p> <p className="date">{task.date ? task.date : 'noDate'}</p> <span>{task.taskDays}</span>:<span>{task.taskHours}</span>:<span>{task.taskMin}</span>:<span>{task.taskSec}</span></TaskBar> 
                 </div>
             ))}
         </Container>
