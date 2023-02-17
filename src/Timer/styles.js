@@ -18,8 +18,12 @@ export const Container = styled.div`
         border-color: #222222;
         border-radius: 10px;
         padding: 10px 10px;
-        width: 400px;
+        width: 57%;
         margin-bottom: 10px;
+    }
+
+    .participants {
+        width: 40%;
     }
 
     button {
@@ -67,10 +71,53 @@ export const TaskBar = styled.div`
 
     p {
         font-weight: 700;
-        margin-right: 10px
+        margin-right: 10px;
     }
 
     .date {
         font-weight: 500;
     }
+
+    .participantes {
+        margin-left: 10px;
+        font-weight: 500;
+    }
+    
+    .participante {
+        margin-left: 5px
+    }
+`;
+
+export const InputsContainer = styled.div`
+    width: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+export const Tabela = styled.table`
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+    background: #fff;
+    width: 80%;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    transition: all 300ms ease;
+
+    thead {
+        th {
+            height: 2rem;
+        }
+    }
+
+    tbody {
+        td {
+          height: 2.8rem;
+          border-bottom: 1px solid #f5f5f5;
+        }
+    }
+
 `;
